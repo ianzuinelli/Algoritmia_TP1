@@ -1,16 +1,16 @@
 Nombre,Materia,Nota1,Nota2,Nota3,NotaFinal(redondeado)
-Matias, Matematica, 7, 8,  9, 8
-Matias, Literatura, 7, 8,  9, 8
-Matias, Historia, 7, 8,  9, 8
-Ramiro, Literatura, 5, 9, 7, 7
-Ramiro, Matematica, 5, 9, 7, 7
-Ramiro, Historia, 5, 9, 7, 7
-Ignacio, Matematica, 7, 7, 10, 8
-Ignacio, Literatura, 7, 7, 10, 8
-Ignacio, Historia, 7, 7, 10, 8
-Augusto, Matematica, 8, 8, 8, 8
-Augusto, Literatura, 8, 8, 8, 8
-Augusto, Historia, 8, 8, 8, 8
-Vito, Matematica, 6, 8, 7, 7
-Vito, Literatura, 6, 8, 7, 7
-Vito, Historia, 6, 8, 7, 7
+Matias,Matematica,7,8,9,8
+Matias,Literatura,6,7,8,7
+Matias,Historia,9,8,7,8
+Ramiro,Literatura,6,9,6,7
+Ramiro,Matematica,4,5,6,5
+Ramiro,Historia,8,7,6,7
+Ignacio,Matematica,7,9,8,8
+Ignacio,Literatura,8,8,8,8
+Ignacio,Historia,9,8,7,8
+Augusto,Matematica,9,8,7,8
+Augusto,Literatura,7,8,9,8
+Augusto,Historia,8,7,9,8
+Vito,Matematica,6,7,8,7
+Vito,Literatura,8,6,7,7
+Vito,Historia,7,8,6,7
