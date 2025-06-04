@@ -11,7 +11,9 @@ def main():
     print("3. Mostrar promedio de notas de materias") 
     print("4. Mostrar lista de alumnos aprobados")
     print("5. Mostrar lista de alumnos reprobados")
+
     print()
+
     seleccion = int(input("Ingresar opcion (cualquier otro numero sera invalido): "))
 
     if seleccion == 1:
