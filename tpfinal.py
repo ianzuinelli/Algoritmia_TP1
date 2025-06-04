@@ -1,4 +1,8 @@
+import pandas as pd
+
 def main():
+    ruta_csv = "./alumnos.csv"
+    lista = pd.read_csv(ruta_csv)
     print()
     print("Bienvenido a la interfaz de manejo de notas, porfavor elija una de las siguientes opciones:") 
     print()
@@ -25,7 +29,7 @@ def main():
     elif seleccion == 5:
         lista_reprobados()
     
-    elif seleccion != 1 and seleccion != 2 and seleccion != 3 and seleccion != 4 and seleccion != 5:
+    else:
         print("valor invalido")
         main()
     
