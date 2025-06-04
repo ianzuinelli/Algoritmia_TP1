@@ -7,7 +7,9 @@ def main():
     print("3. Mostrar promedio de notas de materias") 
     print("4. Mostrar lista de alumnos aprobados")
     print("5. Mostrar lista de alumnos reprobados")
+
     print()
+
     seleccion = int(input("Ingresar opcion (cualquier otro numero sera invalido): "))
 
     if seleccion == 1:
@@ -25,7 +27,7 @@ def main():
     elif seleccion == 5:
         lista_reprobados()
     
-    elif seleccion != 1 and seleccion != 2 and seleccion != 3 and seleccion != 4 and seleccion != 5:
+    else:
         print("valor invalido")
         main()
     
