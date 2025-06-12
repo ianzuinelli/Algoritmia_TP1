@@ -47,10 +47,7 @@ def main():
 def mostrar_notas():
     df = pd.read_csv("alumnos.csv")
     # print(df)
-    print(df["Nombre"], df["NotaFinal"])
-    print(len(df["Nombre"]))
-    for i in (len(df["Nombre"])):
-        print(df["Nombre"][i] + str(df["NotaFinal"][i]))
+    
     main()
 
 
@@ -107,6 +104,10 @@ def lista_aprobados():
     print()
     print("lista aprobados")
     print()
+    
+    for i in (len(df["Nombre"])):
+        print(df["Nombre"][i] + str(df["NotaFinal"][i]))
+    main()
     
 
 def lista_reprobados():
