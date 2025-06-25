@@ -17,6 +17,8 @@ def main():
 
     seleccion = int(input("Ingresar opcion (cualquier otro numero sera invalido): "))
 
+    # seleccion de opciones
+
     if seleccion == 1:
         mostrar_notas()
     
@@ -45,12 +47,13 @@ def main():
 
 def mostrar_notas():
     df = pd.read_csv("alumnos.csv") # Leer la lista CSV
-    print(df) 
+    print(df) # mostrar toda la lista
     print()
     menu = int(input(("Presione 0 para volver al menu: ")))
-    if menu == 0:
-        main()
-
+    while menu != 0:
+            print("Valor invalido")
+            menu = int(input(("Presione 0 para volver al menu: ")))
+    main()
 
 def ingresar_notas():
     df = pd.read_csv("alumnos.csv")
@@ -58,15 +61,15 @@ def ingresar_notas():
     nueva_lista = []
     print("ingresar notas")
     print()
-    nueva_lista.append(str(input("Ingrese el nombre del alumno/a: ")))
+    nueva_lista.append(str(input("Ingrese el nombre del alumno/a: "))) # Ingresar nombre del alumno
     print()
-    print("Materias:")
+    print("Materias:") # Mostrar materias disponibles
     print()
     print("1. Matematica")
     print("2. Literatura")
     print("3. Historia")
     print()
-    materia = int(input("Seleccione la materia: "))
+    materia = int(input("Seleccione la materia: ")) # Ingresar materia
     if materia == 1:
         nueva_lista.append("Matematica")
     elif materia == 2:
@@ -81,27 +84,31 @@ def ingresar_notas():
     nueva_lista.append(int(input("Ingrese la segunda nota: ")))
     nueva_lista.append(int(input("Ingrese la tercera nota: ")))
 
-    nuevo_df = pd.DataFrame([nueva_lista], columns=df.columns)
+    nuevo_df = pd.DataFrame([nueva_lista], columns=df.columns) #agregar nueva lista al dataframe
     df = pd.concat([df, nuevo_df], ignore_index=True)
     df.to_csv("./alumnos.csv", index=False)
     print("agregado correctamente")
     print()
     print()
     menu = int(input(("Presione 0 para volver al menu: ")))
-    if menu == 0:
-        main()
+    while menu != 0:
+            print("Valor invalido")
+            menu = int(input(("Presione 0 para volver al menu: ")))
+    main()
 
 def promedio_materias():
     df = pd.read_csv("alumnos.csv")
     print()
     print("promedio materias")
-    promedio = (df["Nota1"] + df["Nota2"] + df["Nota3"])/3
+    promedio = (df["Nota1"] + df["Nota2"] + df["Nota3"])/3 # Calcular promedio de las notas
     print()
     print(promedio)
     print()
     menu = int(input(("Presione 0 para volver al menu: ")))
-    if menu == 0:
-        main()
+    while menu != 0:
+            print("Valor invalido")
+            menu = int(input(("Presione 0 para volver al menu: ")))
+    main()
 
 def lista_aprobados():
     df = pd.read_csv("alumnos.csv") 
@@ -116,17 +123,26 @@ def lista_aprobados():
 
     print()
     menu = int(input(("Presione 0 para volver al menu: ")))
-    if menu == 0:
-        main()
+    while menu != 0:
+            print("Valor invalido")
+            menu = int(input(("Presione 0 para volver al menu: ")))
+    main()
+    
     
 
 def lista_reprobados():
     df = pd.read_csv("alumnos.csv")
     print("lista reprobados")
     print()
+    for i in range (len(df["Nombre"])):
+        if ((df["Nota1"][i] + df["Nota2"][i] + df["Nota3"][i])/3) < 7: # Calcular el si el promedio del alumno respectivo es menor que siete
+            print(df["Nombre"][i]+ " esta reprobado en: "+  df["Materia"][i]) # Mostrar el alumno reprobado
+    print()
     menu = int(input(("Presione 0 para volver al menu: ")))
-    if menu == 0:
-        main()
+    while menu != 0:
+            print("Valor invalido")
+            menu = int(input(("Presione 0 para volver al menu: ")))
+    main()
 
 def lista_promedio():
     df = pd.read_csv("alumnos.csv")
@@ -141,8 +157,10 @@ def lista_promedio():
 
     print()
     menu = int(input(("Presione 0 para volver al menu: ")))
-    if menu == 0:
-        main()
+    while menu != 0:
+            print("Valor invalido")
+            menu = int(input(("Presione 0 para volver al menu: ")))
+    main()
 
 def lista_orden_alfabetico():
     df = pd.read_csv("alumnos.csv")
@@ -169,9 +187,12 @@ def lista_orden_alfabetico():
     for h in range (len(lista_nombres)):
         print(lista_nombres[h])
     print()
+    
     menu = int(input(("Presione 0 para volver al menu: ")))
-    if menu == 0:
-        main()
+    while menu != 0:
+            print("Valor invalido")
+            menu = int(input(("Presione 0 para volver al menu: ")))
+    main()
 
 def lista_orden_promedios():
     df = pd.read_csv("alumnos.csv")
@@ -200,5 +221,6 @@ def lista_orden_promedios():
     for nombre, promedio in lista_promedios:
         print(f"{nombre}: {promedio:.2f}")
     print()
-
+    menu = int(input(("Presione 0 para volver al menu: ")))
+    
 main()
