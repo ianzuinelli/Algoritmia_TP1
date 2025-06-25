@@ -223,5 +223,8 @@ def lista_orden_promedios():
         print(f"{nombre}: {promedio:.2f}")
     print()
     menu = int(input(("Presione 0 para volver al menu: ")))
-    
+    while menu != 0:
+            print("Valor invalido")
+            menu = int(input(("Presione 0 para volver al menu: ")))
+    main()
 main()
