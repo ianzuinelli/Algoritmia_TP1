@@ -1,3 +1,0 @@
-nuevo_alumno = ['Juan Perez', 'Matematica', 8, 7, 9, 8] 
-nuevo_df = pd.DataFrame([nuevo_alumno], columns=lista.columns)
-lista = pd.concat([lista, nuevo_df], ignore_index=True)
