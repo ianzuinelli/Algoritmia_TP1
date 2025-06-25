@@ -62,7 +62,12 @@ def ingresar_notas():
     nueva_lista = []
     print("Ingresar notas")
     print()
-    nueva_lista.append(str(input("Ingrese el nombre del alumno/a: "))) # Ingresar nombre del alumno
+    nombre_alumno = input(str("Ingrese el nombre del alumno/a: ")) # Ingresar nombre del alumno
+    while nombre_alumno == "":
+        print("El nombre no puede estar vacio")
+        nombre_alumno = input(str("Ingrese el nombre del alumno/a: "))
+    nueva_lista.append(nombre_alumno) # Ingresar nombre del alumno
+
     print()
     print("Materias:") # Mostrar materias disponibles
     print()
@@ -71,6 +76,9 @@ def ingresar_notas():
     print("3. Historia")
     print()
     materia = int(input("Seleccione la materia: ")) # Ingresar materia
+    while materia < 1 or materia > 3 : # Validar que la materia sea correcta
+        print("Numero invalido, porfavor ingrese un numero entre 1 y 3")
+        materia = int(input("Seleccione la materia: "))
     if materia == 1:
         nueva_lista.append("Matematica")
     elif materia == 2:
@@ -81,9 +89,24 @@ def ingresar_notas():
         print("numero invalido")
         ingresar_notas()
     
-    nueva_lista.append(int(input("Ingrese la primera nota: ")))
-    nueva_lista.append(int(input("Ingrese la segunda nota: ")))
-    nueva_lista.append(int(input("Ingrese la tercera nota: ")))
+    nota1 = int(input("Ingrese la primera nota: ")) # Ingresar primera nota
+    while nota1 < 0 or nota1 > 10: # Validar que la nota sea correcta
+        print("Nota invalida, porfavor ingrese un numero entre 0 y 10")
+        nota1 = int(input("Ingrese la primera nota: "))
+    nueva_lista.append(nota1) # Agregar primera nota a la lista
+    
+    nota2 = int(input("Ingrese la segunda nota: ")) # Ingresar segunda nota
+    while nota2 < 0 or nota2 > 10: # Validar que la nota sea correcta
+        print("Nota invalida, porfavor ingrese un numero entre 0 y 10")
+        nota2 = int(input("Ingrese la segunda nota: "))
+    nueva_lista.append(nota2) # Agregar segunda nota a la lista
+
+    nota3 = int(input("Ingrese la tercera nota: ")) # Ingresar tercera nota
+    while nota3 < 0 or nota3 > 10: # Validar que la nota sea correcta
+        print("Nota invalida, porfavor ingrese un numero entre 0 y 10")
+        nota3 = int(input("Ingrese la tercera nota: "))
+    nueva_lista.append(nota3) # Agregar tercera nota a la lista
+
 
     nuevo_df = pd.DataFrame([nueva_lista], columns=df.columns) #agregar nueva lista al dataframe
     df = pd.concat([df, nuevo_df], ignore_index=True)
