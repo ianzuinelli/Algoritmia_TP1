@@ -206,5 +206,8 @@ def lista_orden_promedios():
     for nombre, promedio in lista_promedios:
         print(f"{nombre}: {promedio:.2f}")
     print()
+    menu = int(input(("Presione 0 para volver al menu: ")))
+    if menu == 0:
+        main()
 
 main()
