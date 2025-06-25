@@ -176,26 +176,29 @@ def lista_orden_alfabetico():
 def lista_orden_promedios():
     df = pd.read_csv("alumnos.csv")
     print()
-    print("Lista de promedios de mayor a menor")
+    print("Lista de alumnos ordenada según sus promedios de mayor a menor")
     print()
-    
-    promedio = (df["Nota1"] + df["Nota2"] + df["Nota3"])/3 # Calcular promedio
-    lista_promedios = []
-    n = len(lista_promedios)
-    lista_promedios.append(promedio)
 
-    # Recorrer la lista comenzando desde el segundo elemento
-    for i in range(1, len(lista_promedios)):
-        valor_actual = lista_promedios[i]
-        j = i - 1 
-        # Mover los elementos de la lista[0...i-1] que son mayores que valor_actual
-        # una posición hacia adelante para hacer espacio para valor_actual
-        while j >= 0 and lista_promedios[j] > valor_actual:
-            lista_promedios[j + 1] = lista_promedios[j]
-            j -= 1 
-        # Insertar el valor_actual en su posición correcta
-        lista_promedios[j + 1] = valor_actual
-        print(lista_promedios)
-    
+    # Calcular el promedio de cada alumno
+    df["Promedio"] = (df["Nota1"] + df["Nota2"] + df["Nota3"]) / 3
+
+    # Convertir los datos a una lista de tuplas (Nombre, Promedio)
+    lista_promedios = list(zip(df["Nombre"], df["Promedio"]))
+
+    # Implementar el método de ordenamiento selectivo (selection sort)
+    n = len(lista_promedios)
+    for i in range(n):
+        # Encontrar el índice del elemento con el mayor promedio en el resto de la lista
+        max_idx = i
+        for j in range(i + 1, n):
+            if lista_promedios[j][1] > lista_promedios[max_idx][1]:
+                max_idx = j
+        # Intercambiar el elemento actual con el elemento de mayor promedio
+        lista_promedios[i], lista_promedios[max_idx] = lista_promedios[max_idx], lista_promedios[i]
+
+    # Imprimir la lista ordenada
+    for nombre, promedio in lista_promedios:
+        print(f"{nombre}: {promedio:.2f}")
+    print()
 
 main()
