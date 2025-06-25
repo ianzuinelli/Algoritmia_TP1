@@ -60,7 +60,7 @@ def ingresar_notas():
     df = pd.read_csv("alumnos.csv")
 
     nueva_lista = []
-    print("ingresar notas")
+    print("Ingresar notas")
     print()
     nueva_lista.append(str(input("Ingrese el nombre del alumno/a: "))) # Ingresar nombre del alumno
     print()
@@ -100,21 +100,22 @@ def ingresar_notas():
 def promedio_materias():
     df = pd.read_csv("alumnos.csv")
     print()
-    print("promedio materias")
-    promedio = (df["Nota1"] + df["Nota2"] + df["Nota3"])/3 # Calcular promedio de las notas
+    print("Promedio de notas por alumno y materia")
+    for i in range(len(df)):
+        suma = df["Nota1"][i] + df["Nota2"][i] + df["Nota3"][i]
+        promedio = suma / 3
+        print(f"{df['Nombre'][i]} - {df['Materia'][i]}: {promedio:.2f}")
     print()
-    print(promedio)
-    print()
-    menu = int(input(("Presione 0 para volver al menu: ")))
+    menu = int(input("Presione 0 para volver al menu: "))
     while menu != 0:
-            print("Valor invalido")
-            menu = int(input(("Presione 0 para volver al menu: ")))
+        print("Valor invalido")
+        menu = int(input("Presione 0 para volver al menu: "))
     main()
 
 def lista_aprobados():
     df = pd.read_csv("alumnos.csv") 
     print()
-    print("lista aprobados")
+    print("Lista de alumnos aprobados")
     print()
     
     
@@ -133,7 +134,7 @@ def lista_aprobados():
 
 def lista_reprobados():
     df = pd.read_csv("alumnos.csv")
-    print("lista reprobados")
+    print("Lista de alumnos reprobados")
     print()
     for i in range (len(df["Nombre"])):
         if ((df["Nota1"][i] + df["Nota2"][i] + df["Nota3"][i])/3) < 7: # Calcular el si el promedio del alumno respectivo es menor que siete
@@ -145,23 +146,6 @@ def lista_reprobados():
             menu = int(input(("Presione 0 para volver al menu: ")))
     main()
 
-def lista_promedio():
-    df = pd.read_csv("alumnos.csv")
-    print()
-    print("Lista promedio")
-    print()
-    promedio = (df["Nota1"] + df["Nota2"] + df["Nota3"] + df["NotaFinal"])/4 # Calcular promedio
-
-    # Mostrar nombre del alumno y su promedio respectivo
-    for i in range (len(df["Nombre"])):       
-        print("Promedio de "+ df["Nombre"][i] +": "+ str(promedio))
-
-    print()
-    menu = int(input(("Presione 0 para volver al menu: ")))
-    while menu != 0:
-            print("Valor invalido")
-            menu = int(input(("Presione 0 para volver al menu: ")))
-    main()
 
 def lista_orden_alfabetico():
     df = pd.read_csv("alumnos.csv")
